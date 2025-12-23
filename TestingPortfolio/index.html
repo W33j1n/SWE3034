@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeeJin's Portfolio</title>
+  <link rel="icon" href="icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Gochi+Hand&family=Nunito:wght@400;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <main class="container">
+    <!-- CSS Cat Illustration -->
+    <div class="cat-wrapper">
+      <div class="exclamation-mark">!</div>
+      <div class="cat-body">
+        <div class="cat-ears">
+          <div class="ear left"></div>
+          <div class="ear right"></div>
+        </div>
+        <div class="cat-face">
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+          <div class="nose"></div>
+          <div class="whiskers-left"></div>
+          <div class="whiskers-right"></div>
+        </div>
+        <div class="cat-tail"></div>
+      </div>
+      <div class="grass"></div>
+    </div>
+
+    <!-- Typography Section -->
+    <div class="text-block">
+      <div class="row-top">
+        <span class="handwritten port">Port</span>
+        <span class="handwritten year">Tan Wee Jin</span>
+      </div>
+      <div class="row-bottom">
+        <h1 class="bold-title">folio</h1>
+        <div class="subtitle">SWE3043<br>Software Testing</div>
+      </div>
+      <div class="exclamation-floating">!</div>
+
+      <!-- Click Me Button -->
+      <button class="click-me-btn" onclick="scrollToContent()">
+        Click Me! <span class="arrow">↓</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- Content Section Level 1 -->
+  <section id="content" class="content-section">
+    <!-- "Photo Card" Title -->
+    <div class="title-card">
+      <h2>ATMS Testing Process: F006 Cash Deposit / F007 Transfer</h2>
+    </div>
+
+    <div class="report-container">
+
+      <!-- 1.1 Role -->
+      <div class="report-block">
+        <h3>Professional Role & Responsibility</h3>
+        <p>In this assignment, I was in charge of playing different roles for each process. Each role required different
+          responsibilities and perspectives to implement the software testing process. :</p>
+        <ul>
+          <li><strong>Test Analyst:</strong> I was responsible for the strategic analysis of system logic using four
+            core black-box testing methodologies: Equivalence Partitioning (EP), Boundary Value Analysis (BVA), State
+            Transition Testing, and Use Case Testing.</li>
+          <li><strong>Tester:</strong> My role involved the critical analysis of existing test cases to ensure full
+            coverage, followed by the formalization of detailed Test Procedures (TP) for repeatable system validation.
+          </li>
+        </ul>
+      </div>
+
+      <!-- 1.2 Feature -->
+      <div class="report-block">
+        <h3>Feature Specification & Purpose</h3>
+        <p>The scope of this validation focuses on Feature F006 (Deposit) and Feature F007 (Transfer). The primary
+          objective is to allow users to perform secure transaction into selected accounts, ensuring that every cash
+          transaction adheres strictly to
+          established business rules and system integrity standards.</p>
+      </div>
+
+      <!-- 1.3 Risk -->
+      <div class="report-block">
+        <h3>Risk Assessment</h3>
+        <div class="risk-box">
+          <ul class="flower-list">
+            <li>I identified Feature F006 as a <strong>High-Risk</strong> component. This is because it changes account
+              balances based on physical cash input.</li>
+            <li>I identified the F007 Transfer Feature as <strong>High-Risk</strong> because it involves the
+              simultaneous modification of two separate account balances, which increases the chance of financial
+              discrepancies.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 1.4 Compliance -->
+      <div class="report-block">
+        <h3>Checking Range</h3>
+        <p>The testing lifecycle was managed and documented in strict accordance with the IEEE 829-2008 Standard for
+          Software and System Test Documentation. This ensures a traceable framework consisting of:</p>
+        <ul>
+          <li><strong>Test Design Specifications:</strong> Outlining logical partitions and system behaviors.</li>
+          <li><strong>Test Identification:</strong> Mapping analyzed Test Conditions (TCON) to Coverage IDs (TCOV).</li>
+          <li><strong>Test Procedures:</strong> Defining specific setup, execution, and wrap-up steps (e.g., TP-06-001)
+            for formal validation.</li>
+        </ul>
+      </div>
+
+      <!-- Next Level Button -->
+      <button class="next-level-btn" onclick="scrollToLevel2()">
+        Next
+      </button>
+
+    </div>
+  </section>
+
+  <!-- Content Section Level 2 -->
+  <section id="level-2" class="content-section level-2-theme">
+    <div class="title-card">
+      <h2>Checking Range (EP & BVA)</h2>
+    </div>
+
+    <div class="report-container">
+
+      <!-- 2.1 EP Buckets -->
+      <!-- 2.1 EP Split Layout -->
+      <div class="report-block split-layout no-box">
+
+        <div class="text-side">
+          <h3>2.1 Equivalence Partitioning (EP)</h3>
+          <img src="ep_diagram.png" alt="Equivalence Partitioning Diagram" class="concept-diagram">
+          <p>In the optimization of the test suite, I categorized the infinite range of possible deposit amounts into
+            three logical Equivalence Partitions. This allowed me to achieve maximum coverage with a minimal number of
+            test cases:</p>
+          <ul class="clean-list">
+            <li>
+              <strong>EP1 (Invalid Low):</strong> Amounts < 10. <br>
+                <em>Rationale:</em> This ensures the system rejects deposits below the bank's minimum threshold.
+            </li>
+            <li>
+              <strong>EP2 (Valid Range):</strong> 10 to 2,147,483,647. <br>
+              <em>Rationale:</em> This represents the 'Safe Zone' for successful transactions.
+            </li>
+            <li>
+              <strong>EP3 (Invalid High):</strong> Deposit Amounts > 2,147,483,647. <br>
+              <em>Rationale:</em> This protects the database from 'Integer Overflow' errors by rejecting amounts that
+              exceed system capacity.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2.2 BVA Split Layout -->
+      <div class="report-block split-layout no-box">
+        <div class="visual-side">
+          <div class="scan-container">
+            <img src="bva_diagram.png" alt="Boundary Value Analysis Diagram" class="concept-diagram">
+            <div class="scanner-line"></div>
+          </div>
+        </div>
+        <div class="text-side">
+          <h3>Critical Edge Testing (BVA)</h3>
+          <p>Since software defects are most common at the "edges" of rules, I performed a 2-point Boundary Value
+            Analysis. I specifically targeted the exact transition points where the system’s logic must change:</p>
+          <ul class="clean-list">
+            <li>
+              <strong>Lower Bound:</strong> I verified 9 (Rejection) and 10 (Acceptance) to confirm the minimum limit
+              is strictly enforced.
+            </li>
+            <li>
+              <strong>Upper Bound:</strong> I verified 2,147,483,647 (Acceptance) and 2,147,483,648 (Rejection) to
+              ensure the system handles its maximum numerical limit without crashing.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2.3 Formula -->
+      <div class="formula-card">
+        <h3>Verification of Financial Rule ii</h3>
+        <p>Beyond simple boundaries, I verified the Processing Fee Logic using the following integrity formula:</p>
+        <div class="formula-display">
+          NEW BALANCE = OLD BALANCE + (DEPOSIT AMOUNT - 0.10)
+        </div>
+        <p class="formula-note">Ensures the 0.10 fee is correctly applied to every successful deposit.</p>
+      </div>
+
+    </div>
+
+    <!-- Cat Calculator Wrapper -->
+    <div class="cat-calculator-wrapper">
+      <div class="cat-calculator-body">
+        <div class="cat-ears">
+          <div class="ear left"></div>
+          <div class="ear right"></div>
+        </div>
+        <div class="cat-face">
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+          <div class="nose"></div>
+          <div class="whiskers-left"></div>
+          <div class="whiskers-right"></div>
+        </div>
+        <!-- Calculator -->
+        <div class="calculator-prop">
+          <div class="calc-screen">100%</div>
+          <div class="calc-buttons">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Next Level Button -->
+    <button class="next-level-btn" onclick="scrollToLevel3()">
+      Level 3: Logic Core ↓
+    </button>
+  </section>
+
+  <!-- Content Section Level 3: Decision Table -->
+  <!-- Content Section Level 3: Logic & Flow -->
+  <section id="level-3" class="content-section engineering-theme" style="display:none;">
+
+    <!-- 3.0 Header -->
+    <div class="tech-header">
+      <h2>3.0 Logic Analysis: The Decision Table</h2>
+      <p class="tech-sub">Business Rules & Hierarchy</p>
+    </div>
+
+    <!-- 3.0 Intro -->
+    <div class="tech-content">
+      <p>I utilized a Decision Table to analyze the business rules by mapping combinations of Inputs (Conditions) to
+        their resulting Outputs (Actions). I used this method to act as a Logic Gatekeeper, ensuring that every possible
+        user scenario—both valid and invalid—is accounted for in the test design.</p>
+    </div>
+
+    <!-- 3.1 Decision Table -->
+    <div class="table-section">
+      <h3>Example: F006 Deposit Decision Table</h3>
+      <p>The following table maps the logical conditions to their specific system actions for F006 Cash Deposit</p>
+
+      <div class="engineering-grid-wrapper">
+        <table class="eng-table">
+          <thead>
+            <tr>
+              <th class="col-cond">Condition</th>
+              <th>TCOV-06-010</th>
+              <th>TCOV-06-011</th>
+              <th>TCOV-06-012</th>
+              <th class="success-header">TCOV-06-013</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="anim-row">
+              <td class="row-label">Valid Account Type</td>
+              <td class="cell-n">N</td>
+              <td class="cell-y">Y</td>
+              <td class="cell-n">N</td>
+              <td class="cell-y success-cell">Y</td>
+            </tr>
+            <tr class="anim-row">
+              <td class="row-label">Valid Deposit Amount</td>
+              <td class="cell-dash">-</td>
+              <td class="cell-n">N</td>
+              <td class="cell-y">Y</td>
+              <td class="cell-y success-cell">Y</td>
+            </tr>
+            <!-- Separator -->
+            <tr class="action-header">
+              <td colspan="5"><strong>ACTION</strong></td>
+            </tr>
+            <tr class="anim-row">
+              <td class="row-label">Update Account Balance</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="cell-x success-cell">X</td>
+            </tr>
+            <tr class="anim-row">
+              <td class="row-label">Deduct Processing Fee</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="cell-x success-cell">X</td>
+            </tr>
+            <tr class="anim-row last-row">
+              <td class="row-label">Display Error Message</td>
+              <td class="cell-x">X</td>
+              <td class="cell-x">X</td>
+              <td class="cell-x">X</td>
+              <td class="success-cell"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 3.2 Analysis -->
+    <div class="tech-content deep-dive">
+      <h3>Analytical Deep-Dive</h3>
+      <p>By mapping these rules, I can confirmed that the system correctly prioritizes security and data integrity:</p>
+      <ul class="tech-list">
+        <li><strong>The Gatekeeper Logic:</strong> Rules <span class="mono-badge">TCOV-06-010</span> and <span
+            class="mono-badge">TCOV-06-012</span> show that if an account is invalid (N), the system triggers an error
+          regardless of whether the deposit amount is valid.</li>
+        <li><strong>The Success Path:</strong> Rule <span class="mono-badge highlight">TCOV-06-013</span> (The Success
+          Path): Only when both conditions are 'Yes' (Y) does the system execute the dual-action of updating the balance
+          and deducting the 0.10 fee.</li>
+        <li><strong>Alternative Flows:</strong> I also mapped out the Use Case, including handling scenarios where a
+          user selects an "Invalid Account" or presses the "Cancel" button.</li>
+      </ul>
+    </div>
+
+    <!-- Next Level Button -->
+    <button class="next-level-btn" onclick="scrollToLevel4()">
+      System Behavior ↓
+    </button>
+  </section>
+
+  <!-- Level 4: Behavioral Analysis (Cute Theme) -->
+  <section id="level-4" class="content-section cute-theme" style="display:none;">
+
+    <!-- 4.0 Header -->
+    <div class="technical-header blueprint-header">
+      <h2>Behavioral Analysis: F007 Transfer</h2>
+    </div>
+
+    <div class="blueprint-content">
+      <h3>Behavioral Logic Analysis</h3>
+      <p>I also performed a deep-dive analysis of the system’s dynamic behavior using State Transition Testing. This
+        ensures the ATM never enters an undefined state or a 'frozen' condition, maintaining system stability during
+        complex financial moves.</p>
+
+      <!-- 4.X Diagram Image -->
+      <div class="diagram-display" style="margin: 2rem 0;">
+        <img src="transfer_state_diagram.png" alt="F007 Transfer State Diagram"
+          style="max-width: 100%; border-radius: 20px; border: 4px solid #FFE0B2; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <p style="font-size: 0.9rem; color: #5D4037; margin-top: 0.5rem;">Transfer State Transition Diagram</p>
+      </div>
+
+      <!-- 4.X Detailed Analysis Lists -->
+      <div class="analysis-blocks" style="text-align: left; max-width: 800px; margin: 0 auto;">
+
+        <div class="cute-analysis-item"
+          style="background: white; padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem; border-left: 5px solid #FF7043; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+          <h4 style="color: #E64A19; margin-top: 0;">1. Finite State Mapping (S1 - S6)</h4>
+          <p>I analyzed the feature by breaking the user journey into six discrete Finite States to ensure the system is
+            always in a controlled condition:</p>
+          <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 0.5rem;"><strong>🔹 State S1 to S4:</strong> I verified the data collection phase,
+              ensuring the system captures the "From" account, "To" account, and "Amount" in a strict sequence.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>🔹 State S5 (Performing Transaction):</strong> I analyzed this as
+              the critical "Decision State" where the actual financial update occurs.</li>
+            <li><strong>🔹 State S6 (Ejecting Card):</strong> I verified this as the Terminal State, ensuring the
+              session is completely closed to protect user security.</li>
+          </ul>
+        </div>
+
+        <div class="cute-analysis-item"
+          style="background: white; padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem; border-left: 5px solid #FFCA28; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+          <h4 style="color: #F57F17; margin-top: 0;">2. Resilience through Self-Loops</h4>
+          <p>A key part of my analysis was testing the system's reaction to <strong>Invalid Account Types (IAT)</strong>
+            in states S2 and S3.</p>
+          <p><strong>Deep Insight:</strong> I confirmed the presence of <em>Self-Loops</em> where the system remains in
+            the current state if an error occurs.</p>
+          <p><strong>Action WI (Waiting Input):</strong> This ensures that the ATM does not advance to the next state or
+            crash; instead, it provides the user with an opportunity to correct their input, maintaining a "Zero-Defect"
+            flow.</p>
+        </div>
+
+        <div class="cute-analysis-item"
+          style="background: white; padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem; border-left: 5px solid #EF5350; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+          <h4 style="color: #C62828; margin-top: 0;">3. Deadlock Prevention (The Cancel Path)</h4>
+          <p>I specifically analyzed the Cancel (C) event across all input states (S2, S3, S4).</p>
+          <ul style="padding-left: 1rem;">
+            <li><strong>Safety Override:</strong> My analysis verified that the system provides a consistent exit path
+              to S5 (Performing Transaction) with a Waiting Input (WT) action.</li>
+            <li><strong>Justification:</strong> This prevents "System Deadlocks" where a user might feel trapped in a
+              sub-menu. It ensures that the card can be reclaimed safely at almost any stage of the process.</li>
+          </ul>
+        </div>
+
+        <div class="cute-analysis-item"
+          style="background: white; padding: 1.5rem; border-radius: 15px; margin-bottom: 1.5rem; border-left: 5px solid #42A5F5; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+          <h4 style="color: #1565C0; margin-top: 0;">4. Logical Traceability</h4>
+          <p>To guarantee 100% test coverage, I mapped every transition arrow in the diagram to a specific Test Coverage
+            ID (<strong>TCOV-07-037</strong> to <strong>TCOV-07-049</strong>). This allows for full auditability,
+            proving that the test suite accounts for every possible "Happy Path" and "Negative Path" in the behavioral
+            logic.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4.3 State Transition Matrix -->
+    <div class="table-section blueprint-table-section">
+      <h3>Transfer State Transition Table</h3>
+      <p>This grid maps the system states against user inputs to ensure the logical coverage.</p>
+
+      <div class="blueprint-grid-wrapper">
+        <table class="blueprint-table">
+          <thead>
+            <tr>
+              <th class="corner-header">State \ Input</th>
+              <th>Transfer (T)</th>
+              <th>Cancel (C)</th>
+              <th>Valid Acc (VAT)</th>
+              <th>Invalid Acc (IAT)</th>
+              <th>Valid Amt (VAMV)</th>
+              <th>Invalid Amt (IAV)</th>
+              <th>Yes (Y)</th>
+              <th>No (N)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bp-row" data-state="S1">
+              <td class="row-head">S1: Transaction Menu</td>
+              <td class="ok-cell">S2 / WI</td>
+              <td class="alt-cell">S6 / EC</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+            </tr>
+            <tr class="bp-row" data-state="S2">
+              <td class="row-head">S2: Reading 'From' Acc</td>
+              <td class="dead-cell">-</td>
+              <td class="alt-cell">S5 / WT</td>
+              <td class="ok-cell">S3 / WI</td>
+              <td class="err-cell">S2 / WI</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+            </tr>
+            <tr class="bp-row" data-state="S3">
+              <td class="row-head">S3: Reading 'To' Acc</td>
+              <td class="dead-cell">-</td>
+              <td class="alt-cell">S5 / WT</td>
+              <td class="ok-cell">S4 / WI</td>
+              <td class="err-cell">S3 / WI</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+            </tr>
+            <tr class="bp-row" data-state="S4">
+              <td class="row-head">S4: Reading Amount</td>
+              <td class="dead-cell">-</td>
+              <td class="alt-cell">S5 / WT</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="ok-cell">S5 / RL & PR</td>
+              <td class="err-cell">S5 / RL & DM</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+            </tr>
+            <tr class="bp-row" data-state="S5">
+              <td class="row-head">S5: Performing Trans</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="dead-cell">-</td>
+              <td class="ok-cell">S1 / CT</td>
+              <td class="end-cell">S6 / EC</td>
+            </tr>
+            <tr class="bp-row" data-state="S6">
+              <td class="row-head">S6: Ejecting Card</td>
+              <td colspan="8" class="final-cell">TERMINAL STATE</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Legend -->
+      <div class="bp-legend-container">
+        <span class="bp-legend-qs">Legend: [Hover to View Action Codes]</span>
+        <div class="bp-legend-popup">
+          <strong>Action Codes:</strong><br>
+          <span class="l-item">WI = Waiting Input</span>
+          <span class="l-item">WT = Wait Timeout/Cancel</span>
+          <span class="l-item">EC = Eject Card</span>
+          <span class="l-item">RL = Record Log</span>
+          <span class="l-item">PR = Print Receipt</span>
+          <span class="l-item">DM = Display Message</span>
+          <span class="l-item">CT = Choose Transaction</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.4 TCOV List -->
+    <div class="tcov-section">
+      <h3>Test Coverage Descriptions</h3>
+      <ul class="blueprint-list">
+        <li><span class="code-id">TCOV-07-037</span> S1 to S2 with input T</li>
+        <li><span class="code-id">TCOV-07-038</span> S1 to S6 with input C</li>
+        <li><span class="code-id">TCOV-07-039</span> S2 to S5 with input C</li>
+        <li><span class="code-id">TCOV-07-040</span> S2 to S3 with input VAT</li>
+        <li><span class="code-id">TCOV-07-041</span> S2 to S2 with input IAT</li>
+        <li><span class="code-id">TCOV-07-042</span> S3 to S5 with input C</li>
+        <li><span class="code-id">TCOV-07-043</span> S3 to S4 with input VAT</li>
+        <li><span class="code-id">TCOV-07-044</span> S3 to S3 with input IAT</li>
+        <li><span class="code-id">TCOV-07-045</span> S4 to S5 with input C</li>
+        <li><span class="code-id">TCOV-07-046</span> S4 to S5 with input VAMV</li>
+        <li><span class="code-id">TCOV-07-047</span> S4 to S5 with input IAV</li>
+        <li><span class="code-id">TCOV-07-048</span> S5 to S1 with input Y</li>
+        <li><span class="code-id">TCOV-07-049</span> S5 to S6 with input N</li>
+      </ul>
+    </div>
+
+
+
+    <!-- Final Footer / Conclusion -->
+    <div class="project-conclusion"
+      style="max-width: 800px; margin: 4rem 0; text-align: center; background: #FFF; padding: 2rem; border-radius: 20px; border: 4px dashed #FFAB91;">
+      <h3 style="color: #E64A19;">Final Conclusion</h3>
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #5D4037;">
+        This portfolio demonstrates my deep understanding of the tester role and my ability to apply diverse
+        methodologies to secure a reliable user experience within the ATMS business scenario. This project gave me
+        hands-on experience in software quality assurance. By taking on this role, I developed the critical thinking
+        needed to identify vulnerabilities and ensure a reliable, user-friendly experience for ATM customers.
+      </p>
+    </div>
+
+    <div class="footer-note">
+      <p>Thank You</p>
+      <p style="font-size: 0.8rem; opacity: 0.7;">Tan Wee Jin © 2025</p>
+    </div>
+
+  </section>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
